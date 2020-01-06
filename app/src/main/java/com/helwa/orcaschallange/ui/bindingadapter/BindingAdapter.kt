@@ -7,14 +7,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYouListener
 import com.helwa.orcaschallange.R
 import com.like.LikeButton
-
-
-/*
-var requestBuilder: RequestBuilder<PictureDrawable>? = null
-*/
 
 
 @BindingAdapter("adapter")
@@ -30,7 +24,13 @@ fun setFavourite(likeButton: LikeButton, isFavourite: Boolean? = false) {
 @BindingAdapter("imgSrc")
 fun setImageSrc(imageView: ImageView, imageUrl: String) {
 
-    GlideToVectorYou.justLoadImage(imageView.context as Activity?, Uri.parse(imageUrl), imageView)
+    if (imageUrl.endsWith(".svg", true))
+        GlideToVectorYou.justLoadImage(
+            imageView.context as Activity?,
+            Uri.parse(imageUrl),
+            imageView
+        )
+    else
         imageUrl.let {
             Glide.with(imageView.context).load(Uri.parse(imageUrl))
                 .placeholder(R.drawable.default_crest)

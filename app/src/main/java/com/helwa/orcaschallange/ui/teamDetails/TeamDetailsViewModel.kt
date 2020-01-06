@@ -67,8 +67,8 @@ class TeamDetailsViewModel(
                 .concatMap { teamDetails ->
                     if (teamDetails==null) {
                         api.getSpicialTeam(teamId = id).concatMap { teamDetails ->
-                            teamsDoa.insertOneTime(teamDetails.teamDetails)
-                            Observable.just(teamDetails.teamDetails)
+                            teamsDoa.insertOneTime(teamDetails)
+                            Observable.just(teamDetails)
                         }
                     } else {
                         Observable.just(teamDetails)

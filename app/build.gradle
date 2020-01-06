@@ -83,6 +83,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+
+
     //Koin
     implementation "org.koin:koin-core:$koinVersion"
     implementation "org.koin:koin-android:$koinVersion"

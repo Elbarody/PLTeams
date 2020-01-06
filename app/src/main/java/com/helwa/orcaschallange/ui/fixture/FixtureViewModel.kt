@@ -29,7 +29,7 @@ class FixtureViewModel(private val api: FixtureAPI, private val teamsDoa: TeamsD
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun fetchTeams() {
         launch {
-            Observable.fromCallable { teamsDoa.getAllTeams(limit = 6,offset = 0) }
+            Observable.fromCallable { teamsDoa.getAllTeams }
                     .concatMap { dbMatchesList ->
                         if (dbMatchesList.isEmpty()) {
                             api.getTeams().concatMap { apiMatchesList ->
@@ -66,7 +66,7 @@ class FixtureViewModel(private val api: FixtureAPI, private val teamsDoa: TeamsD
 
     fun getAllTeams() {
         launch {
-            Observable.fromCallable { teamsDoa.getAllTeams(limit = 6,offset = 0) }
+            Observable.fromCallable { teamsDoa.getAllTeams }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe {
