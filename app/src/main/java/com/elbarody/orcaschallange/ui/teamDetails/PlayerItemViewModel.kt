@@ -2,14 +2,13 @@ package com.elbarody.orcaschallange.ui.teamDetails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.elbarody.orcaschallange.ui.base.BaseViewModel
 import com.elbarody.orcaschallange.data.model.Player
+import com.elbarody.orcaschallange.ui.base.BaseViewModel
 
 class PlayerItemViewModel : BaseViewModel() {
 
 
-
-    private var idPlayer : Int = 0
+    private var idPlayer: Int = 0
 
     private val _namePlayer = MutableLiveData<String>()
     val namePlayer: LiveData<String> get() = _namePlayer
@@ -26,10 +25,12 @@ class PlayerItemViewModel : BaseViewModel() {
     fun bind(
         player: Player
     ) {
-        idPlayer = player.id!!
-        _namePlayer.value = player.name
-        _nationalityPlayer.value = player.nationality
-        _positionPlayer.value = player.position
+        player.position?.let {
+            _positionPlayer.value = it
+            idPlayer = player.id!!
+            _namePlayer.value = player.name
+            _nationalityPlayer.value = player.nationality
+        }
     }
 
 }
