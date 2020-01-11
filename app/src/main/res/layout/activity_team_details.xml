@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
-            type="com.helwa.orcaschallange.ui.teamDetails.TeamDetailsViewModel" />
+            type="com.elbarody.orcaschallange.ui.teamDetails.TeamDetailsViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -13,11 +18,11 @@
         tools:context=".ui.teamDetails.TeamDetailsActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrain_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:paddingBottom="16dp"
-            android:id="@+id/constrain_layout"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,27 +31,28 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_external_link"
                 android:layout_margin="16dp"
+                android:onClick="@{()->viewModel.onClickWebsite()}"
+                android:src="@drawable/ic_external_link"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
             <ImageView
                 android:id="@+id/team_icon"
+                imgSrc="@{viewModel.crestUrl}"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/default_crest"
                 app:layout_constraintBottom_toBottomOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/guideline" />
+                app:layout_constraintTop_toTopOf="@id/guideline"
+                tools:src="@drawable/default_crest" />
 
             <TextView
                 android:id="@+id/team_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="united"
                 android:text="@{viewModel.nameTeam}"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -54,20 +60,21 @@
                 app:layout_constraintBottom_toTopOf="@id/team_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="united" />
 
             <TextView
                 android:id="@+id/short_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                tools:text="united"
                 android:text="@{viewModel.shotNameTeam}"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/team_icon" />
+                app:layout_constraintTop_toBottomOf="@id/team_icon"
+                tools:text="united" />
 
             <View
                 android:id="@+id/view"
@@ -85,72 +92,72 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                tools:text="1998"
                 android:text="@{viewModel.venueNameTeam}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toStartOf="@id/view"
-                app:layout_constraintTop_toBottomOf="@id/short_name_tv" />
+                app:layout_constraintTop_toBottomOf="@id/short_name_tv"
+                tools:text="1998" />
 
             <TextView
                 android:id="@+id/found_date_team_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                tools:text="1998"
                 android:text="@{viewModel.foundTeam}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/view"
-                app:layout_constraintTop_toBottomOf="@id/short_name_tv" />
+                app:layout_constraintTop_toBottomOf="@id/short_name_tv"
+                tools:text="1998" />
 
             <TextView
                 android:id="@+id/address_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                tools:text="united"
                 android:text="@{viewModel.addressTeam}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/found_date_team_tv" />
+                app:layout_constraintTop_toBottomOf="@id/found_date_team_tv"
+                tools:text="united" />
 
             <TextView
                 android:id="@+id/phone_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                tools:text="united"
                 android:text="@{viewModel.phoneTeam}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/address_tv" />
+                app:layout_constraintTop_toBottomOf="@id/address_tv"
+                tools:text="united" />
 
             <TextView
                 android:id="@+id/email_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                tools:text="united"
                 android:text="@{viewModel.emailTeam}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phone_tv" />
+                app:layout_constraintTop_toBottomOf="@id/phone_tv"
+                tools:text="united" />
 
             <TextView
                 android:id="@+id/color_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                tools:text="united"
                 android:text="@{viewModel.colorTeam}"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/email_tv" />
+                app:layout_constraintTop_toBottomOf="@id/email_tv"
+                tools:text="united" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -163,15 +170,26 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            adapter="@{viewModel.adapter}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="8dp"
-            adapter="@{viewModel.adapter}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/constrain_layout"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constrain_layout" />
 
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressBackgroundTint="#2196F3"
+            android:visibility="@{viewModel.loadingVisibility? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

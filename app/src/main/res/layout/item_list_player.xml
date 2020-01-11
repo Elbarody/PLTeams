@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.helwa.orcaschallange.ui.teamDetails.PlayerItemViewModel" />
+            type="com.elbarody.orcaschallange.ui.teamDetails.PlayerItemViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

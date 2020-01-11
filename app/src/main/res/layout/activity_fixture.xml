@@ -9,14 +9,14 @@
 
         <variable
             name="fixtureVM"
-            type="com.helwa.orcaschallange.ui.fixture.FixtureViewModel" />
+            type="com.elbarody.orcaschallange.ui.fixture.AllTeamsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        tools:context=".ui.fixture.FixtureActivity">
+        tools:context=".ui.fixture.AllTeamsActivity">
 
 
         <com.google.android.material.appbar.AppBarLayout
